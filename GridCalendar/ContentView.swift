@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     let layout = [
-        GridItem(.fixed(40))
+        GridItem(.fixed(40)),
+        GridItem(.fixed(40)),
+        GridItem(.fixed(40)),
+        GridItem(.fixed(40)),
     ]
+    
     var body: some View {
-        LazyVGrid(columns: layout) {
-            ForEach(year[0].days) {
-                day in Capsule().overlay(Text("\(day.value)").foregroundColor(.white))
-                    .foregroundColor(.blue)
-                    .frame(height: 40)
+        ScrollView {
+            LazyVGrid(columns: layout) {
+                ForEach(year[0].days) {
+                    day in Capsule().overlay(Text("\(day.value)").foregroundColor(.white))
+                        .foregroundColor(.blue)
+                        .frame(height: 40)
+                }
             }
         }
     }
